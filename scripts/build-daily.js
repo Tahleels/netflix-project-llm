@@ -13,7 +13,7 @@ async function main() {
     }
 
     // Pick next task
-    const task = backlog.pending[0];
+    const task = backlog.pending;
     console.log(`🚀 Building Task ${task.id}: ${task.title}`);
 
     // Build context
@@ -30,14 +30,13 @@ RULES:
 - Generate ONLY valid React/Vite/Tailwind code (<200 lines)
 - Create missing files: package.json, vite.config.js, index.html if needed
 - Use TMDB API: https://api.themoviedb.org/3/trending/all/week?api_key=free
-- For each file, output in this format:
+- For each file, output in this exact format:
 
-\`\`\`
-FILENAME
+=== FILENAME ===
 <file content here>
-\`\`\`
+=== END ===
 
-Do NOT explain anything, only output one or more such code blocks. Start with Task ${task.id} ONLY.`;
+Do NOT explain anything, only output one or more such file blocks. Start with Task ${task.id} ONLY.`;
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
@@ -61,7 +60,7 @@ Do NOT explain anything, only output one or more such code blocks. Start with Ta
     }
 
     // Daily progress log
-    const date = new Date().toISOString().split('T')[0];
+    const date = new Date().toISOString().split('T');
     fs.mkdirSync('docs/progress', { recursive: true });
     fs.writeFileSync(
       `docs/progress/${date}-${task.id}.md`,
@@ -106,8 +105,11 @@ Do NOT explain anything, only output one or more such code blocks. Start with Ta
 
 function parseAIResponse(text) {
   const changes = [];
-  // Split on triple backticks, which wrap each code block
-  const parts = text.split('```
+  // Expect blocks like:
+  // === FILENAME ===
+  // code...
+  // === END ===
+  const parts = text.split('=== ');
   for (const part of parts) {
     const trimmed = part.trim();
     if (!trimmed) continue;
@@ -116,10 +118,15 @@ function parseAIResponse(text) {
     if (lines.length < 2) continue;
 
     const firstLine = lines.trim();
-    if (!firstLine || firstLine.includes(' ')) continue; // likely not a filename
+    if (!firstLine.endsWith('==='))
+      continue; // not in "FILENAME ===" form
 
-    const filename = firstLine;
-    const content = lines.slice(1).join('\n').trim();
+    const filename = firstLine.replace('===', '').trim();
+    const endIndex = lines.lastIndexOf('=== END ===');
+    const contentLines =
+      endIndex === -1 ? lines.slice(1) : lines.slice(1, endIndex);
+    const content = contentLines.join('\n').trim();
+
     if (filename && content) {
       changes.push({ filename, content });
     }
