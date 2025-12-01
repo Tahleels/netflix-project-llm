@@ -113,6 +113,8 @@ function parseAIResponse(text) {
     if (!trimmed) continue;
 
     const lines = trimmed.split('\n');
+    if (lines.length < 2) continue;
+
     const firstLine = lines.trim();
     if (!firstLine || firstLine.includes(' ')) continue; // likely not a filename
 
