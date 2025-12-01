@@ -39,7 +39,7 @@ RULES:
 Do NOT explain anything, only output one or more such file blocks. Start with Task ${task.id} ONLY.`;
 
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
     const result = await model.generateContent(prompt);
     const response = result.response.text();
 
