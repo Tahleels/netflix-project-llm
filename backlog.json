@@ -1,26 +1,127 @@
 {
-  "completed": [],
+  "completed": [
+    {
+      "id": 1,
+      "phase": 1,
+      "title": "Setup Vite + React + Tailwind CSS",
+      "desc": "Initialize Vite React 18 + Tailwind. Basic package.json with lint/test scripts."
+    }
+  ],
   "pending": [
-    {"id": 1, "phase": 1, "title": "Setup Vite + React + Tailwind CSS", "desc": "Initialize Vite React 18 + Tailwind. Basic package.json with lint/test scripts."},
-    {"id": 2, "phase": 1, "title": "Netflix landing page layout", "desc": "App.jsx with black bg, Netflix logo position, responsive container."},
-    {"id": 3, "phase": 1, "title": "Fixed responsive navbar", "desc": "Navbar with logo, Home/TV/Movies/Recently Added, search input, profile icon."},
-    {"id": 4, "phase": 1, "title": "TMDB API trending fetch", "desc": "Fetch trending movies/TV from TMDB API (no key needed). Store in state."},
-    {"id": 5, "phase": 1, "title": "Hero banner component", "desc": "Hero with backdrop image, title, play/more info buttons, gradient overlay."},
-    {"id": 6, "phase": 2, "title": "Movie row carousel", "desc": "Reusable Row component - horizontal scroll, hover zoom, responsive."},
-    {"id": 7, "phase": 2, "title": "Search functionality", "desc": "Search bar filters trending results live. Debounced input."},
-    {"id": 8, "phase": 2, "title": "Movie detail modal", "desc": "Click movie → modal with poster, synopsis, cast, trailer embed."},
-    {"id": 9, "phase": 2, "title": "Genre filtering", "desc": "Filter rows by genre using TMDB data."},
-    {"id": 10, "phase": 3, "title": "Node/Express server setup", "desc": "Backend server with CORS, basic /health endpoint."},
-    {"id": 11, "phase": 3, "title": "MongoDB + user model", "desc": "Mongoose schema for users, favorites, watchlist."},
-    {"id": 12, "phase": 3, "title": "JWT authentication", "desc": "Register/login endpoints, protect routes."},
-    {"id": 13, "phase": 3, "title": "User profile page", "desc": "Frontend profile with watchlist/favorites from backend."},
-    {"id": 14, "phase": 4, "title": "Gemini AI recommendations", "desc": "Mood-based movie recs using Gemini API call."},
-    {"id": 15, "phase": 4, "title": "My List feature", "desc": "Add/remove movies to personal list (backend + UI)."},
-    {"id": 16, "phase": 4, "title": "Watch history", "desc": "Track recently watched movies per user."},
-    {"id": 17, "phase": 5, "title": "Jest unit tests", "desc": "Test key components (Navbar, Row, Hero)."},
-    {"id": 18, "phase": 5, "title": "Responsive mobile UI", "desc": "Mobile-first breakpoints, touch scrolling."},
-    {"id": 19, "phase": 5, "title": "Vercel deployment", "desc": "Deploy frontend + backend. Custom domain setup."},
-    {"id": 20, "phase": 5, "title": "Project documentation", "desc": "Complete README, API docs, architecture diagram."}
+    {
+      "id": 2,
+      "phase": 1,
+      "title": "Netflix landing page layout",
+      "desc": "App.jsx with black bg, Netflix logo position, responsive container."
+    },
+    {
+      "id": 3,
+      "phase": 1,
+      "title": "Fixed responsive navbar",
+      "desc": "Navbar with logo, Home/TV/Movies/Recently Added, search input, profile icon."
+    },
+    {
+      "id": 4,
+      "phase": 1,
+      "title": "TMDB API trending fetch",
+      "desc": "Fetch trending movies/TV from TMDB API (no key needed). Store in state."
+    },
+    {
+      "id": 5,
+      "phase": 1,
+      "title": "Hero banner component",
+      "desc": "Hero with backdrop image, title, play/more info buttons, gradient overlay."
+    },
+    {
+      "id": 6,
+      "phase": 2,
+      "title": "Movie row carousel",
+      "desc": "Reusable Row component - horizontal scroll, hover zoom, responsive."
+    },
+    {
+      "id": 7,
+      "phase": 2,
+      "title": "Search functionality",
+      "desc": "Search bar filters trending results live. Debounced input."
+    },
+    {
+      "id": 8,
+      "phase": 2,
+      "title": "Movie detail modal",
+      "desc": "Click movie → modal with poster, synopsis, cast, trailer embed."
+    },
+    {
+      "id": 9,
+      "phase": 2,
+      "title": "Genre filtering",
+      "desc": "Filter rows by genre using TMDB data."
+    },
+    {
+      "id": 10,
+      "phase": 3,
+      "title": "Node/Express server setup",
+      "desc": "Backend server with CORS, basic /health endpoint."
+    },
+    {
+      "id": 11,
+      "phase": 3,
+      "title": "MongoDB + user model",
+      "desc": "Mongoose schema for users, favorites, watchlist."
+    },
+    {
+      "id": 12,
+      "phase": 3,
+      "title": "JWT authentication",
+      "desc": "Register/login endpoints, protect routes."
+    },
+    {
+      "id": 13,
+      "phase": 3,
+      "title": "User profile page",
+      "desc": "Frontend profile with watchlist/favorites from backend."
+    },
+    {
+      "id": 14,
+      "phase": 4,
+      "title": "Gemini AI recommendations",
+      "desc": "Mood-based movie recs using Gemini API call."
+    },
+    {
+      "id": 15,
+      "phase": 4,
+      "title": "My List feature",
+      "desc": "Add/remove movies to personal list (backend + UI)."
+    },
+    {
+      "id": 16,
+      "phase": 4,
+      "title": "Watch history",
+      "desc": "Track recently watched movies per user."
+    },
+    {
+      "id": 17,
+      "phase": 5,
+      "title": "Jest unit tests",
+      "desc": "Test key components (Navbar, Row, Hero)."
+    },
+    {
+      "id": 18,
+      "phase": 5,
+      "title": "Responsive mobile UI",
+      "desc": "Mobile-first breakpoints, touch scrolling."
+    },
+    {
+      "id": 19,
+      "phase": 5,
+      "title": "Vercel deployment",
+      "desc": "Deploy frontend + backend. Custom domain setup."
+    },
+    {
+      "id": 20,
+      "phase": 5,
+      "title": "Project documentation",
+      "desc": "Complete README, API docs, architecture diagram."
+    }
   ],
   "phases": {
     "1": "Core UI (Days 1-9)",
