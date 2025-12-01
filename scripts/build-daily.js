@@ -13,7 +13,7 @@ async function main() {
     }
 
     // Pick next task
-    const task = backlog.pending;
+    const task = backlog.pending[0];
     console.log(`🚀 Building Task ${task.id}: ${task.title}`);
 
     // Build context
@@ -60,7 +60,7 @@ Do NOT explain anything, only output one or more such file blocks. Start with Ta
     }
 
     // Daily progress log
-    const date = new Date().toISOString().split('T');
+    const date = new Date().toISOString().split('T')[0];
     fs.mkdirSync('docs/progress', { recursive: true });
     fs.writeFileSync(
       `docs/progress/${date}-${task.id}.md`,
@@ -117,9 +117,8 @@ function parseAIResponse(text) {
     const lines = trimmed.split('\n');
     if (lines.length < 2) continue;
 
-    const firstLine = lines.trim();
-    if (!firstLine.endsWith('==='))
-      continue; // not in "FILENAME ===" form
+    const firstLine = lines[0].trim();
+    if (!firstLine.endsWith('===')) continue; // not in "FILENAME ===" form
 
     const filename = firstLine.replace('===', '').trim();
     const endIndex = lines.lastIndexOf('=== END ===');
