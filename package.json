@@ -1,7 +1,6 @@
 {
   "name": "netflix-project-llm-scripts",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "build-daily": "node scripts/build-daily.js",
     "lint": "eslint . --ext .js"
